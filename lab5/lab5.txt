@@ -1,0 +1,78 @@
+import java.text.*;
+public class Vector2d {
+	private double x;
+	private double y;
+	private double result;
+	public Vector2d() {
+		
+	}
+	public Vector2d(double a , double b) {
+		this.x = a;
+		this.y = b;
+	}
+	public double getX(Vector2d a) {
+		return this.x;
+	}
+	public double getY(Vector2d b) {
+		return this.y;
+	}
+	public static double dot(Vector2d a , Vector2d b) {
+		double result = (a.x*b.x)+ (a.y*b.y);
+		if(result<0) {
+			System.out.println("-"+result);
+			//System.out.println("====");
+		}else
+			System.out.println("Dot : "+result);
+		
+		return result;
+	}
+	
+	public static Vector2d add(Vector2d a_add , Vector2d b_add) {
+		Vector2d sum = new Vector2d();
+		Vector2d sum1 = new Vector2d();
+		sum.result = (a_add.x+b_add.x) ;
+		sum1.result =  (a_add.y+b_add.y);
+		System.out.print("Add : "+sum.result + " , ");
+		System.out.println(sum1.result);
+		return sum;
+	}
+	
+	/*public static double Proj(Vector2d a_pro , Vector2d b_pro) {
+		double result = a_pro.x*b_pro.y;
+		return result;
+	}*/
+	
+	public  static double Proj(Vector2d  a_add , Vector2d b_add) {
+		double r =Math.sqrt(( Math.pow(a_add.y, 2))+(Math.pow(b_add.y, 2)  ));
+		//System.out.println(r);
+		double result = ( (a_add.x*b_add.x)+ (a_add.y*b_add.y))/r;
+		//double result1 = a_add.y *( b_add.y/Math.abs((Math.sqrt(r))));
+		System.out.format("Scalar :  %.2f\n" ,result);
+		//System.out.println(" , "+ result1);
+		return result;
+	}
+	public  static Vector2d sub(Vector2d  a_sub , Vector2d b_sub) {
+		Vector2d sub = new Vector2d();
+		Vector2d sub1 = new Vector2d();
+		sub.result = a_sub.x - b_sub.x;
+		sub1.result = a_sub.y - b_sub.y;
+		System.out.print("Sub : "+ sub.result+ " , ");
+		System.out.println(sub1.result);
+		return sub;
+	}
+	public  double norm() {
+		double result = Math.sqrt((Math.pow(this.x, 2))+(Math.pow(this.y, 2)));
+		System.out.println("Norm : "+result);
+		return result;
+	}
+	public  Vector2d unitVector() {
+		Vector2d y = new Vector2d();
+		//double x1 = 
+		double x = this.x/Math.sqrt((Math.pow(this.x,2)+Math.pow(this.y,2)));
+		//System.out.println("Unit : "+ x);
+		System.out.format("%.2f\n",x);
+		return y;
+	}
+	
+	
+}
